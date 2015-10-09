@@ -106,6 +106,7 @@ alias at='tmux attach'
 alias tk='tmux kill-session'
 alias tl='tmux le'
 alias af='arc feature'
+alias cdf="~/df/commit.sh"
 
 #When 'grepping' add color!
 alias grep="grep --color"
