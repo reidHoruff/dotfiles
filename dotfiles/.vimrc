@@ -10,7 +10,7 @@ call vundle#begin()
 Plugin 'gmarik/vundle'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'ludovicchabant/vim-lawrencium'
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe', {'pinned': 1}
 Plugin 'wting/rust.vim'
 Plugin 'mbbill/undotree'
 Plugin 'FelikZ/ctrlp-py-matcher'
@@ -45,6 +45,10 @@ source $ADMIN_SCRIPTS/master.vimrc
 source /mnt/vol/engshare/admin/scripts/vim/fbvim.vim
 source /home/engshare/admin/scripts/vim/biggrep.vim
 let g:hack#enable = 0
+
+" cpp syntax stuff
+let g:cpp_class_scope_highlight = 1
+let g:cpp_experimental_template_highlight = 1
 
 " bookmarks stuff
 " let g:bookmark_no_default_key_mappings = 1
@@ -129,7 +133,6 @@ colorscheme Tomorrow-Night
 "colorscheme codeschool
 "colorscheme 256-grayvim
 "colorscheme Monokai
-"colorscheme badwolf
 "colorscheme jellybeans
 "colorscheme jelleybeans
 "colorscheme solarized
@@ -204,9 +207,10 @@ set cursorline
 set ttymouse=sgr
 
 "you complete me stuff
-let g:ycm_min_num_identifier_candidate_chars = 2
-let g:ycm_min_num_of_chars_for_completion = 2
-let g:ycm_filetype_specific_completion_to_disable = { 'php':1, 'javascript':1, 'python':1}
+" let g:ycm_min_num_identifier_candidate_chars = 2
+" let g:ycm_min_num_of_chars_for_completion = 2
+" let g:ycm_filetype_specific_completion_to_disable = { 'php':1, 'javascript':1, 'python':1, 'cpp':1}
+" let g:ycm_global_ycm_extra_conf="~/.vim/bundle/YouCompleteMe/ycm_extra_conf.py"
 
 "makes shifting easier
 noremap < <<
@@ -229,3 +233,16 @@ set clipboard=unnamed
 
 "remove trailing whitespace on write
 autocmd BufWritePre * :%s/\s\+$//e
+
+" YouCompleteMe
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_min_num_identifier_candidate_chars = 4
+let g:ycm_enable_diagnostic_signs = 0
+let g:ycm_error_symbol = 'x'
+let g:ycm_warning_symbol = '!'
+let g:ycm_server_keep_logfiles = 1
+let g:ycm_server_log_level = 'debug'
+nnoremap <leader>pg :YcmCompleter GoToDefinitionElseDeclaration<CR>
+map * :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap <leader>pd :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>pc :YcmCompleter GoToDeclaration<CR>
