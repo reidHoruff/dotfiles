@@ -10,7 +10,7 @@ call vundle#begin()
 Plugin 'gmarik/vundle'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'ludovicchabant/vim-lawrencium'
-Plugin 'Valloric/YouCompleteMe', {'pinned': 1}
+Plugin 'Valloric/YouCompleteMe',
 Plugin 'wting/rust.vim'
 Plugin 'mbbill/undotree'
 Plugin 'FelikZ/ctrlp-py-matcher'
@@ -22,8 +22,6 @@ Plugin 'jlanzarotta/bufexplorer'
 Plugin 'solarnz/thrift.vim'
 " Plugin 'MattesGroeger/vim-bookmarks'
 Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'ihacklog/HiCursorWords'
-Plugin 'vim-scripts/Conque-Shell'
 Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-commentary'
 Plugin 'mxw/vim-jsx'
@@ -34,6 +32,7 @@ Plugin 'powerline/powerline'
 Plugin 'wincent/Command-T'
 Plugin 'jscappini/material.vim'
 Plugin 'mhumeSF/one-dark.vim'
+Plugin 'terryma/vim-smooth-scroll'
 "Plugin 'xolox/vim-session'
 "Plugin 'xolox/vim-misc'
 
@@ -47,8 +46,8 @@ source /home/engshare/admin/scripts/vim/biggrep.vim
 let g:hack#enable = 0
 
 " cpp syntax stuff
-let g:cpp_class_scope_highlight = 1
-let g:cpp_experimental_template_highlight = 1
+" let g:cpp_class_scope_highlight = 1
+" let g:cpp_experimental_template_highlight = 1
 
 " bookmarks stuff
 " let g:bookmark_no_default_key_mappings = 1
@@ -128,14 +127,14 @@ set hidden
 "syntax coloring
 syntax enable
 "set background=dark
-colorscheme Tomorrow-Night
+"colorscheme Tomorrow-Night
 "colorscheme mustang
 "colorscheme codeschool
 "colorscheme 256-grayvim
 "colorscheme Monokai
 "colorscheme jellybeans
 "colorscheme jelleybeans
-"colorscheme solarized
+colorscheme solarized
 "colorscheme material
 
 hi VertSplit ctermbg=NONE guibg=NONE
@@ -170,7 +169,7 @@ set noswapfile
 "match OverLength /\%81v.\+/
 
 "highlight search results
-highlight Search ctermbg=yellow ctermfg=black
+"highlight Search ctermbg=yellow ctermfg=black
 
 "creates a session
 function! MakeSession()
@@ -180,7 +179,7 @@ endfunction
 "leads a session file
 function! LoadSession()
   source ~/.mysession.vim
-  highlight Search ctermbg=yellow ctermfg=black
+  "highlight Search ctermbg=yellow ctermfg=black
   hi VertSplit ctermbg=NONE guibg=NONE
 endfunction
 
@@ -207,10 +206,9 @@ set cursorline
 set ttymouse=sgr
 
 "you complete me stuff
-" let g:ycm_min_num_identifier_candidate_chars = 2
-" let g:ycm_min_num_of_chars_for_completion = 2
-" let g:ycm_filetype_specific_completion_to_disable = { 'php':1, 'javascript':1, 'python':1, 'cpp':1}
-" let g:ycm_global_ycm_extra_conf="~/.vim/bundle/YouCompleteMe/ycm_extra_conf.py"
+let g:ycm_min_num_identifier_candidate_chars = 2
+let g:ycm_min_num_of_chars_for_completion = 2
+let g:ycm_filetype_specific_completion_to_disable = { 'php':1, 'javascript':1, 'python':1, 'cpp':1}
 
 "makes shifting easier
 noremap < <<
@@ -234,15 +232,11 @@ set clipboard=unnamed
 "remove trailing whitespace on write
 autocmd BufWritePre * :%s/\s\+$//e
 
-" YouCompleteMe
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_min_num_identifier_candidate_chars = 4
-let g:ycm_enable_diagnostic_signs = 0
-let g:ycm_error_symbol = 'x'
-let g:ycm_warning_symbol = '!'
-let g:ycm_server_keep_logfiles = 1
-let g:ycm_server_log_level = 'debug'
-nnoremap <leader>pg :YcmCompleter GoToDefinitionElseDeclaration<CR>
-map * :YcmCompleter GoToDefinitionElseDeclaration<CR>
-nnoremap <leader>pd :YcmCompleter GoToDefinition<CR>
-nnoremap <leader>pc :YcmCompleter GoToDeclaration<CR>
+" smooth scroll stuff
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
+
+highlight Search ctermbg=yellow ctermfg=black
+
