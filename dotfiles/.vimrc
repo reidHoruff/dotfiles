@@ -35,6 +35,7 @@ Plugin 'mhumeSF/one-dark.vim'
 Plugin 'terryma/vim-smooth-scroll'
 "Plugin 'xolox/vim-session'
 "Plugin 'xolox/vim-misc'
+Plugin 'terryma/vim-expand-region'
 
 call vundle#end()
 filetype plugin indent on
@@ -110,6 +111,8 @@ map gu guiwe
 map * <C-]>zz
 map U :redo<CR>
 map gv :e ~/.vimrc<CR>
+"map <BS> viB
+map K <Plug>(expand_region_expand)
 
 if getcwd() =~ "fbcode"
   map gf :FBGW<CR>
@@ -126,7 +129,7 @@ set hidden
 
 "syntax coloring
 syntax enable
-"set background=dark
+set background=dark
 "colorscheme Tomorrow-Night
 "colorscheme mustang
 "colorscheme codeschool
@@ -136,8 +139,6 @@ syntax enable
 "colorscheme jelleybeans
 colorscheme solarized
 "colorscheme material
-
-hi VertSplit ctermbg=NONE guibg=NONE
 
 "ignore search/replace case
 set ignorecase
@@ -223,8 +224,8 @@ let g:bufExplorerSortBy='mru'
 set nosol
 
 "persistent undo history
-set undofile
-set undodir=~/.vim/undodir
+"set undofile
+"set undodir=~/.vim/undodir
 
 "use system clipboard as default reg
 set clipboard=unnamed
@@ -232,11 +233,9 @@ set clipboard=unnamed
 "remove trailing whitespace on write
 autocmd BufWritePre * :%s/\s\+$//e
 
-" smooth scroll stuff
-noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
-noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
-noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
-noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
+hi VertSplit ctermbg=NONE guibg=NONE
 
-highlight Search ctermbg=yellow ctermfg=black
+set fillchars+=vert:\ "trailing whitespace
+
+
 
