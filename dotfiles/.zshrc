@@ -1,14 +1,11 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/home/horuff/.oh-my-zsh
+export ZSH=/Users/horuff/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-#ZSH_THEME="robbyrussell"
-#ZSH_THEME="jreese"
-#ZSH_THEME="blinks"
-ZSH_THEME="ys"
+ZSH_THEME="jreese"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -56,7 +53,7 @@ plugins=(git)
 
 # User configuration
 
-export PATH="/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/facebook/ops/scripts:/usr/facebook/scripts:/opt/local/bin:/usr/local/sbin:/usr/sbin:/sbin:/mnt/vol/engshare/svnroot/tfb/trunk/www/scripts/bin:/mnt/vol/engshare/admin/scripts/hg:/mnt/vol/engshare/admin/scripts/git:/mnt/vol/engshare/admin/scripts:/home/horuff/www/scripts/bin:/usr/facebook/ops/scripts:/usr/facebook/scripts:/usr/facebook/scripts:/usr/facebook/scripts/db:/usr/local/sbin:/usr/sbin:/sbin:/mnt/vol/engshare/svnroot/tfb/trunk/www/scripts/bin:/mnt/vol/engshare/admin/scripts/hg:/mnt/vol/engshare/admin/scripts/git:/mnt/vol/engshare/admin/scripts:/home/horuff/www/scripts/bin:/usr/local/sbin:/usr/sbin:/sbin:/mnt/vol/engshare/svnroot/tfb/trunk/www/scripts/bin:/mnt/vol/engshare/admin/scripts/hg:/mnt/vol/engshare/admin/scripts/git:/mnt/vol/engshare/admin/scripts:/home/horuff/www/scripts/bin:/home/horuff/bin:/usr/facebook/ops/scripts:/usr/facebook/scripts:/usr/local/sbin:/usr/sbin:/sbin:/mnt/vol/engshare/svnroot/tfb/trunk/www/scripts/bin:/mnt/vol/engshare/admin/scripts/hg:/mnt/vol/engshare/admin/scripts/git:/mnt/vol/engshare/admin/scripts:/home/horuff/www/scripts/bin:/usr/facebook/ops/scripts:/usr/facebook/scripts:/usr/facebook/scripts:/usr/facebook/scripts/db:/usr/local/sbin:/usr/sbin:/sbin:/mnt/vol/engshare/svnroot/tfb/trunk/www/scripts/bin:/mnt/vol/engshare/admin/scripts/hg:/mnt/vol/engshare/admin/scripts/git:/mnt/vol/engshare/admin/scripts:/home/horuff/www/scripts/bin:/usr/local/sbin:/usr/sbin:/sbin:/mnt/vol/engshare/svnroot/tfb/trunk/www/scripts/bin:/mnt/vol/engshare/admin/scripts/hg:/mnt/vol/engshare/admin/scripts/git:/mnt/vol/engshare/admin/scripts:/home/horuff/www/scripts/bin:/home/horuff/bin"
+export PATH="/opt/facebook/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -85,47 +82,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-#
+alias box="ssh dev7418.prn1.facebook.com"
 
-[[ -z "$ADMIN_SCRIPTS" ]] && export ADMIN_SCRIPTS='/mnt/vol/engshare/admin/scripts'
-source "${ADMIN_SCRIPTS}/master.zshrc"
-source "${ADMIN_SCRIPTS}/scm-prompt"
-
-
-##These are good for dataswarm
-alias com='git commit -a'
-alias acom='git commit -a --amend'
-alias sw='git checkout'
-alias st='git status'
-alias br='git branch'
-alias ad='/mnt/vol/engshare/devtools/arcanist/bin/arc diff'
-alias sm='/mnt/vol/engshare/devtools/arcanist/bin/arc amend; git svn dcommit'
-alias cont='git rebase --continue'
-alias del='sw master; git branch -D'
-alias at='tmux attach'
-alias tk='tmux kill-session'
-alias tl='tmux le'
-alias af='arc feature'
-alias cdf="~/df/commit.sh"
-
-#When 'grepping' add color!
-alias grep="grep --color"
-
-#Choose your editor
-EDITOR=vim
-# Tip: make sure you 'export' your variables in order to have them show in env
-export EDITOR
 bindkey -v
-
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# Load zsh-autosuggestions.
-# source ~/.zsh/zsh-autosuggestions/autosuggestions.zsh
-
-# Enable autosuggestions automatically.
-# zle-line-init() {
-#   zle autosuggest-start
-# }
-zle -N zle-line-init
-bindkey '^f' vi-forward-blank-word
-
