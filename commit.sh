@@ -1,4 +1,5 @@
 #!/bin/bash
+git pull
 cd "$(dirname "$0")"
 
 cp ~/.tmux.conf ./dotfiles/.tmux.conf
