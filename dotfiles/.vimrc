@@ -9,7 +9,7 @@ call vundle#begin()
 
 Plugin 'gmarik/vundle'
 Plugin 'Lokaltog/vim-easymotion'
-Plugin 'ludovicchabant/vim-lawrencium'
+"Plugin 'ludovicchabant/vim-lawrencium'
 Plugin 'Valloric/YouCompleteMe',
 " Plugin 'mbbill/undotree'
 Plugin 'vim-scripts/a.vim'
@@ -29,6 +29,7 @@ Plugin 'ihacklog/HiCursorWords'
 Plugin 'xolox/vim-misc'
 " Plugin 'xolox/vim-notes'
 Plugin 'xolox/vim-session'
+Plugin 'tmux-plugins/vim-tmux'
 
 call vundle#end()
 filetype plugin indent on
@@ -38,6 +39,7 @@ source $ADMIN_SCRIPTS/master.vimrc
 source /mnt/vol/engshare/admin/scripts/vim/fbvim.vim
 source /home/engshare/admin/scripts/vim/biggrep.vim
 let g:hack#enable = 0
+let g:fb_kill_whitespace = 0
 
 " cpp syntax stuff
 " let g:cpp_class_scope_highlight = 1
@@ -104,6 +106,8 @@ map U :redo<CR>
 map gv :e ~/.vimrc<CR>
 "map <BS> viB
 map K <Plug>(expand_region_expand)
+map gN :NERDTreeFind<CR><c-w>=
+map gy :OpenSession<CR>
 
 " select search engine depending on repo
 if getcwd() =~ "fbcode"
@@ -113,9 +117,9 @@ else
 endif
 
 " fuzzy file opener... there are many
-" map go :CtrlPRoot<CR>
+map go :CtrlPRoot<CR>
 " map go :FBVimMuralSearch<CR>
-map go :CommandT<CR>
+" map go :CommandT<CR>
 
 "allows hidden bufers (dont have to save before hiding)
 set hidden
@@ -212,7 +216,7 @@ set nosol
 set clipboard=unnamed
 
 "remove trailing whitespace on write
-autocmd BufWritePre * :%s/\s\+$//e
+"autocmd BufWritePre * :%s/\s\+$//e
 
 "hi VertSplit ctermbg=NONE guibg=NONE
 
@@ -227,3 +231,6 @@ if v:version >= 700
   au BufLeave * let b:winview = winsaveview()
   au BufEnter * if(exists('b:winview')) | call winrestview(b:winview) | endif
 endif
+
+au BufReadPost TARGETS set syntax=python
+au BufReadPost *.cconf set syntax=python
