@@ -35,9 +35,9 @@ call vundle#end()
 filetype plugin indent on
 
 "facebook stuff
-source $ADMIN_SCRIPTS/master.vimrc
-source /mnt/vol/engshare/admin/scripts/vim/fbvim.vim
-source /home/engshare/admin/scripts/vim/biggrep.vim
+"source $ADMIN_SCRIPTS/master.vimrc
+"source /mnt/vol/engshare/admin/scripts/vim/fbvim.vim
+"source /home/engshare/admin/scripts/vim/biggrep.vim
 let g:hack#enable = 0
 let g:fb_kill_whitespace = 0
 
@@ -61,6 +61,8 @@ let g:HiCursorWords_delay = 200
 
 "always show status bar
 set laststatus=2
+"always show col/line num in status bar
+set ruler
 
 "command t stuff
 let g:CommandTMaxFiles=350000
@@ -152,7 +154,7 @@ set smartindent
 
 "ctrl+p stuff
 let g:ctrlp_by_filename = 1
-let g:ctrlp_max_files = 1000
+let g:ctrlp_max_files = 0
 let g:ctrlp_working_path_mode = 'c'
 
 "easymotion activated via space
@@ -226,6 +228,8 @@ set fillchars+=vert:\ "trailing whitespace
 "start scrolling 8 lines from top/bottom of pane
 set scrolloff=8
 
+nnoremap // :noh<CR>
+
 " remember scroll pos when switching between buffers
 if v:version >= 700
   au BufLeave * let b:winview = winsaveview()
@@ -234,3 +238,63 @@ endif
 
 au BufReadPost TARGETS set syntax=python
 au BufReadPost *.cconf set syntax=python
+au BufReadPost *.test set filetype=sql
+au BufReadPost *.result set filetype=sql
+
+function! GotoFileWithLineNum()
+  let path = expand('<cfile>')
+  if !strlen(path)
+    echo 'NO FILE UNDER CURSOR'
+    return
+  endif
+
+  if search('\%#\f*:\zs[0-9]\+')
+    let temp = &iskeyword
+    set iskeyword=48-57
+    let line_number = expand('<cword>')
+    exe 'set iskeyword=' . temp
+  endif
+
+  if strpart(path, 0, 1) != "/"
+    let path = getcwd() . "/" . path
+  endif
+
+  if filereadable(path)
+    set modifiable
+    set noreadonly
+    close
+    exe 'e '.path
+    if exists('line_number')
+      exe line_number
+    endif
+  else
+    echo 'file not found'
+  endif
+endfunction
+
+function! DecentGrep()
+  let cw = expand('<cword>')
+  let cur_ft = &filetype
+  let cur_syn = &syntax
+  let include = ''
+
+  if cur_ft == 'cpp'
+    let include = "--include='*.cc' --include='*.cpp' --include='*.h'"
+  elseif cur_ft == 'sql'
+    let include = "--include='*.sql' --include='*.test' --include='*.result'"
+  endif
+
+  silent! exe "noautocmd botright pedit grep"
+  noautocmd wincmd P
+  set buftype=nofile
+  exe "read !grep -rinI -B 3 -A 3 ".include." ".cw." | sed -e 's/\(\S+\)-\([0-9]+\)-\(.*\)/\1:\2:\3/'"
+  exe 0
+  set readonly
+  set nomodifiable
+  setlocal winheight=50
+  exe "set syntax=".cur_syn
+  nnoremap <buffer> <CR> :call GotoFileWithLineNum()<CR>
+endfunction
+
+map gf :call DecentGrep()<CR>
+
