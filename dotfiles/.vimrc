@@ -131,15 +131,16 @@ set hidden
 "syntax coloring
 syntax enable
 set background=dark
-"colorscheme Tomorrow-Night
+colorscheme Tomorrow-Night
 "colorscheme mustang
 "colorscheme codeschool
 "colorscheme 256-grayvim
 "colorscheme Monokai
 "colorscheme jellybeans
 "colorscheme jelleybeans
-colorscheme solarized
+"colorscheme solarized
 "colorscheme material
+"colorscheme badwolf
 
 "ignore search/replace case
 set ignorecase
