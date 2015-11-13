@@ -30,6 +30,8 @@ Plugin 'xolox/vim-misc'
 " Plugin 'xolox/vim-notes'
 Plugin 'xolox/vim-session'
 Plugin 'tmux-plugins/vim-tmux'
+Plugin 'reidHoruff/tagless'
+Plugin 'christoomey/vim-tmux-navigator'
 
 call vundle#end()
 filetype plugin indent on
@@ -72,17 +74,17 @@ let g:CommandTMaxHeight = 20
 let g:CommandTSmartCase = 1
 
 "pane navigation
-nmap <silent> <c-k> :wincmd k<CR>
-nmap <silent> <c-j> :wincmd j<CR>
-nmap <silent> <c-h> :wincmd h<CR>
-nmap <silent> <c-l> :wincmd l<CR>
+"nmap <silent> <c-k> :wincmd k<CR>
+"nmap <silent> <c-j> :wincmd j<CR>
+"nmap <silent> <c-h> :wincmd h<CR>
+"nmap <silent> <c-l> :wincmd l<CR>
 
 " disable arrow keys
 noremap <Up> ""
 noremap! <Up> <Esc>
 noremap <Down> ""
 noremap! <Down> <Esc>
-noremap <Left> ""
+noremap <Left> "
 noremap! <Left> <Esc>
 noremap <Right> ""
 noremap! <Right> <Esc>
@@ -241,60 +243,9 @@ au BufReadPost *.cconf set syntax=python
 au BufReadPost *.test set filetype=sql
 au BufReadPost *.result set filetype=sql
 
-function! GotoFileWithLineNum()
-  let path = expand('<cfile>')
-  if !strlen(path)
-    echo 'NO FILE UNDER CURSOR'
-    return
-  endif
-
-  if search('\%#\f*:\zs[0-9]\+')
-    let temp = &iskeyword
-    set iskeyword=48-57
-    let line_number = expand('<cword>')
-    exe 'set iskeyword=' . temp
-  endif
-
-  if strpart(path, 0, 1) != "/"
-    let path = getcwd() . "/" . path
-  endif
-
-  if filereadable(path)
-    set modifiable
-    set noreadonly
-    close
-    exe 'e '.path
-    if exists('line_number')
-      exe line_number
-    endif
-  else
-    echo 'file not found'
-  endif
-endfunction
-
-function! DecentGrep()
-  let cw = expand('<cword>')
-  let cur_ft = &filetype
-  let cur_syn = &syntax
-  let include = ''
-
-  if cur_ft == 'cpp'
-    let include = "--include='*.cc' --include='*.cpp' --include='*.h'"
-  elseif cur_ft == 'sql'
-    let include = "--include='*.sql' --include='*.test' --include='*.result'"
-  endif
-
-  silent! exe "noautocmd botright pedit grep"
-  noautocmd wincmd P
-  set buftype=nofile
-  exe "read !grep -rinI -B 3 -A 3 ".include." ".cw." | sed -e 's/\(\S+\)-\([0-9]+\)-\(.*\)/\1:\2:\3/'"
-  exe 0
-  set readonly
-  set nomodifiable
-  setlocal winheight=50
-  exe "set syntax=".cur_syn
-  nnoremap <buffer> <CR> :call GotoFileWithLineNum()<CR>
-endfunction
-
-map gf :call DecentGrep()<CR>
-
+let g:tagless_context_lines=2
+let g:tagless_highlight_result=1
+let g:tagless_window_height=30
+let g:tagless_enable_shitty_syntax_highlighting=1
+let g:tagless_infer_file_types=1
+map gf :TaglessCW<CR>
