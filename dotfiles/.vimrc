@@ -19,7 +19,7 @@ Plugin 'kien/ctrlp.vim'
 "Plugin 'jlanzarotta/bufexplorer'
 "Plugin 'solarnz/thrift.vim'
 "Plugin 'MattesGroeger/vim-bookmarks'
-"Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'octol/vim-cpp-enhanced-highlight'
 "Plugin 'majutsushi/tagbar'
 "Plugin 'tpope/vim-commentary'
 Plugin 'Raimondi/delimitMate'
@@ -49,19 +49,19 @@ let g:fb_kill_whitespace = 0
 " let g:cpp_class_scope_highlight = 1
 " let g:cpp_experimental_template_highlight = 1
 
-" bookmarks stuff
-let g:bookmark_no_default_key_mappings = 1
-let g:bookmark_auto_save = 1
-let g:bookmark_manage_per_buffer = 1
-let g:bookmark_auto_close = 1
-let g:bookmark_sign = '~'
-let g:bookmark_highlight_lines = 0
-map mm :BookmarkToggle<CR>
-map mn :BookmarkNext<CR>
-map gj :BookmarkShowAll<CR>
+"bookmarks stuff
+"let g:bookmark_no_default_key_mappings = 1
+"let g:bookmark_auto_save = 1
+"let g:bookmark_manage_per_buffer = 1
+"let g:bookmark_auto_close = 1
+"let g:bookmark_sign = '~'
+"let g:bookmark_highlight_lines = 0
+"map mm :BookmarkToggle<CR>
+"map mn :BookmarkNext<CR>
+"map gj :BookmarkShowAll<CR>
 
 "nerd tree stuff
-let g:NERDTreeWinSize = 35
+"let g:NERDTreeWinSize = 35
 
 "highlight current word after 300ms
 let g:HiCursorWords_delay = 200
@@ -72,11 +72,11 @@ set laststatus=2
 set ruler
 
 "command t stuff
-let g:CommandTMaxFiles=350000
-let g:CommandTFileScanner = 'watchman'
-let g:CommandTInputDebounce = 200
-let g:CommandTMaxHeight = 20
-let g:CommandTSmartCase = 1
+"let g:CommandTMaxFiles=350000
+"let g:CommandTFileScanner = 'watchman'
+"let g:CommandTInputDebounce = 200
+"let g:CommandTMaxHeight = 20
+"let g:CommandTSmartCase = 1
 
 "pane navigation
 "nmap <silent> <c-k> :wincmd k<CR>
@@ -84,7 +84,7 @@ let g:CommandTSmartCase = 1
 "nmap <silent> <c-h> :wincmd h<CR>
 "nmap <silent> <c-l> :wincmd l<CR>
 
-" disable arrow keys
+"disable arrow keys
 noremap <Up> ""
 noremap! <Up> <Esc>
 noremap <Down> ""
@@ -169,7 +169,7 @@ let g:ctrlp_working_path_mode = 'c'
 "easymotion activated via space
 "map <SPACE> <Plug>(easymotion-s2)
 "map <SPACE> :bn<CR>
-map <SPACE> :BookmarkShowAll<CR>
+"map <SPACE> :BookmarkShowAll<CR>
 
 "fuck swap files
 set noswapfile
@@ -259,6 +259,4 @@ endif
 
 " recursively find tags files
 set tags=tags;/
-
-"set relativenumber
 
