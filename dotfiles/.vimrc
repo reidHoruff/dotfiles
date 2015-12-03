@@ -8,30 +8,32 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/vundle'
-Plugin 'Lokaltog/vim-easymotion'
+"Plugin 'Lokaltog/vim-easymotion'
 "Plugin 'ludovicchabant/vim-lawrencium'
-Plugin 'Valloric/YouCompleteMe',
+"Plugin 'Valloric/YouCompleteMe',
 " Plugin 'mbbill/undotree'
 Plugin 'vim-scripts/a.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'jlanzarotta/bufexplorer'
-Plugin 'solarnz/thrift.vim'
-" Plugin 'MattesGroeger/vim-bookmarks'
-Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'majutsushi/tagbar'
-Plugin 'tpope/vim-commentary'
+"Plugin 'scrooloose/nerdtree'
+"Plugin 'jlanzarotta/bufexplorer'
+"Plugin 'solarnz/thrift.vim'
+"Plugin 'MattesGroeger/vim-bookmarks'
+"Plugin 'octol/vim-cpp-enhanced-highlight'
+"Plugin 'majutsushi/tagbar'
+"Plugin 'tpope/vim-commentary'
 Plugin 'Raimondi/delimitMate'
-Plugin 'wincent/Command-T'
-Plugin 'terryma/vim-expand-region'
-Plugin 'ihacklog/HiCursorWords'
+"Plugin 'wincent/Command-T'
+"Plugin 'terryma/vim-expand-region'
+"Plugin 'ihacklog/HiCursorWords'
 Plugin 'xolox/vim-misc'
 " Plugin 'xolox/vim-notes'
 Plugin 'xolox/vim-session'
 Plugin 'tmux-plugins/vim-tmux'
 Plugin 'reidHoruff/tagless'
 Plugin 'christoomey/vim-tmux-navigator'
+"Plugin 'tpope/vim-fugitive'
+Plugin 'ntpeters/vim-better-whitespace'
 
 call vundle#end()
 filetype plugin indent on
@@ -48,12 +50,15 @@ let g:fb_kill_whitespace = 0
 " let g:cpp_experimental_template_highlight = 1
 
 " bookmarks stuff
-" let g:bookmark_no_default_key_mappings = 1
-" let g:bookmark_auto_save = 1
-" let g:bookmark_manage_per_buffer = 1
-" map mm :BookmarkToggle<CR>
-" map mn :BookmarkNext<CR>
-" map gj :BookmarkShowAll<CR>
+let g:bookmark_no_default_key_mappings = 1
+let g:bookmark_auto_save = 1
+let g:bookmark_manage_per_buffer = 1
+let g:bookmark_auto_close = 1
+let g:bookmark_sign = '~'
+let g:bookmark_highlight_lines = 0
+map mm :BookmarkToggle<CR>
+map mn :BookmarkNext<CR>
+map gj :BookmarkShowAll<CR>
 
 "nerd tree stuff
 let g:NERDTreeWinSize = 35
@@ -92,9 +97,8 @@ noremap! <Right> <Esc>
 "some useful shortcuts
 map gt :TagbarToggle<CR><c-w>=
 map gl :CtrlPLine<CR>
-map gk :CtrlPBuffer<CR>
-map gh <Leader>bej
-map gs :wa<CR>
+map <C-f> :CtrlPBuffer<CR>
+map gs :w<CR>
 map ga :A<CR>
 map gn :NERDTreeToggle<CR><c-w>=
 map ge :IH<CR>
@@ -122,6 +126,7 @@ endif
 
 " fuzzy file opener... there are many
 map go :CtrlPRoot<CR>
+let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:20,results:20'
 " map go :FBVimMuralSearch<CR>
 " map go :CommandT<CR>
 
@@ -131,16 +136,17 @@ set hidden
 "syntax coloring
 syntax enable
 set background=dark
-colorscheme Tomorrow-Night
-"colorscheme mustang
-"colorscheme codeschool
-"colorscheme 256-grayvim
+"colorscheme Tomorrow-Night
+colorscheme 256-grayvim
 "colorscheme Monokai
 "colorscheme jellybeans
 "colorscheme jelleybeans
 "colorscheme solarized
 "colorscheme material
 "colorscheme badwolf
+
+"set cursorline
+set nocursorline
 
 "ignore search/replace case
 set ignorecase
@@ -161,7 +167,9 @@ let g:ctrlp_max_files = 0
 let g:ctrlp_working_path_mode = 'c'
 
 "easymotion activated via space
-map <SPACE> <Plug>(easymotion-s2)
+"map <SPACE> <Plug>(easymotion-s2)
+"map <SPACE> :bn<CR>
+map <SPACE> :BookmarkShowAll<CR>
 
 "fuck swap files
 set noswapfile
@@ -178,7 +186,7 @@ let g:session_autosave = 'yes'
 set number
 
 "tab cycles through windows
-map <Tab> <C-W><C-W>
+"map <Tab> <C-W><C-W>
 
 "term coloring shit
 set t_Co=256
@@ -191,8 +199,6 @@ map <2-LeftMouse> gd
 "when highlighting all instance of current word under cursor
 "make sure cursor stays in pos
 map gd gd``
-"HL line that cursor is on
-set cursorline
 "mouse escape codes or some shit
 set ttymouse=sgr
 
@@ -204,11 +210,6 @@ let g:ycm_filetype_specific_completion_to_disable = {'php':1, 'javascript':1, 'p
 "makes shifting easier
 noremap < <<
 noremap > >>
-
-"buff explorer stuff
-let g:bufExplorerShowDirectories=0
-let g:bufExplorerShowRelativePath=0
-let g:bufExplorerSortBy='mru'
 
 "remember cursor position
 set nosol
@@ -233,12 +234,6 @@ set scrolloff=8
 
 nnoremap // :noh<CR>
 
-" remember scroll pos when switching between buffers
-if v:version >= 700
-  au BufLeave * let b:winview = winsaveview()
-  au BufEnter * if(exists('b:winview')) | call winrestview(b:winview) | endif
-endif
-
 au BufReadPost TARGETS set syntax=python
 au BufReadPost *.cconf set syntax=python
 au BufReadPost *.test set filetype=sql
@@ -250,3 +245,20 @@ let g:tagless_window_height=30
 let g:tagless_enable_shitty_syntax_highlighting=1
 let g:tagless_infer_file_types=1
 map gf :TaglessCW<CR>
+
+"remember cursor positions
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
+" remember scroll pos when switching between buffers
+if v:version >= 700
+  au BufLeave * let b:winview = winsaveview()
+  au BufEnter * if(exists('b:winview')) | call winrestview(b:winview) | endif
+endif
+
+" recursively find tags files
+set tags=tags;/
+
+"set relativenumber
+
