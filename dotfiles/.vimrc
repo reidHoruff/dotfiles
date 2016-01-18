@@ -8,12 +8,12 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/vundle'
-"Plugin 'Lokaltog/vim-easymotion'
+Plugin 'Lokaltog/vim-easymotion'
 "Plugin 'ludovicchabant/vim-lawrencium'
 "Plugin 'Valloric/YouCompleteMe',
 "Plugin 'mbbill/undotree'
 Plugin 'vim-scripts/a.vim'
-Plugin 'flazz/vim-colorschemes'
+"Plugin 'flazz/vim-colorschemes'
 Plugin 'kien/ctrlp.vim'
 "Plugin 'scrooloose/nerdtree'
 "Plugin 'jlanzarotta/bufexplorer'
@@ -22,18 +22,20 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 "Plugin 'majutsushi/tagbar'
 "Plugin 'tpope/vim-commentary'
-Plugin 'Raimondi/delimitMate'
+"Plugin 'Raimondi/delimitMate'
 "Plugin 'wincent/Command-T'
 "Plugin 'terryma/vim-expand-region'
-"Plugin 'ihacklog/HiCursorWords'
-Plugin 'xolox/vim-misc'
+Plugin 'ihacklog/HiCursorWords'
+"Plugin 'xolox/vim-misc'
 "Plugin 'xolox/vim-notes'
-Plugin 'xolox/vim-session'
+"Plugin 'xolox/vim-session'
 Plugin 'tmux-plugins/vim-tmux'
 Plugin 'reidHoruff/tagless'
 Plugin 'christoomey/vim-tmux-navigator'
-"Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive'
 Plugin 'ntpeters/vim-better-whitespace'
+"Plugin 'joshdick/onedark.vim'
+"Plugin 'vim-scripts/Conque-GDB'
 
 call vundle#end()
 filetype plugin indent on
@@ -64,7 +66,7 @@ let g:fb_kill_whitespace = 0
 "let g:NERDTreeWinSize = 35
 
 "highlight current word after 300ms
-let g:HiCursorWords_delay = 200
+let g:HiCursorWords_delay = 300
 
 "always show status bar
 set laststatus=2
@@ -115,7 +117,7 @@ map gv :e ~/.vimrc<CR>
 "map <BS> viB
 map K <Plug>(expand_region_expand)
 map gN :NERDTreeFind<CR><c-w>=
-map gy :OpenSession<CR>
+map gy :OpenSession!<CR>
 
 " select search engine depending on repo
 if getcwd() =~ "fbcode"
@@ -135,9 +137,10 @@ set hidden
 
 "syntax coloring
 syntax enable
-set background=dark
+"set background=dark
 "colorscheme Tomorrow-Night
-colorscheme 256-grayvim
+"colorscheme 256-grayvim
+"colorscheme onedark
 "colorscheme Monokai
 "colorscheme jellybeans
 "colorscheme jelleybeans
@@ -145,8 +148,7 @@ colorscheme 256-grayvim
 "colorscheme material
 "colorscheme badwolf
 
-"set cursorline
-set nocursorline
+"set nocursorline
 
 "ignore search/replace case
 set ignorecase
@@ -167,7 +169,7 @@ let g:ctrlp_max_files = 0
 let g:ctrlp_working_path_mode = 'c'
 
 "easymotion activated via space
-"map <SPACE> <Plug>(easymotion-s2)
+map <SPACE> <Plug>(easymotion-s2)
 "map <SPACE> :bn<CR>
 "map <SPACE> :BookmarkShowAll<CR>
 
@@ -203,9 +205,9 @@ map gd gd``
 set ttymouse=sgr
 
 "you complete me stuff
-let g:ycm_min_num_identifier_candidate_chars = 2
-let g:ycm_min_num_of_chars_for_completion = 2
-let g:ycm_filetype_specific_completion_to_disable = {'php':1, 'javascript':1, 'python':1, 'cpp':1}
+let g:ycm_min_num_identifier_candidate_chars = 1
+let g:ycm_min_num_of_chars_for_completion = 1
+let g:ycm_filetype_specific_completion_to_disable = {'php':1, 'javascript':1, 'python':1}
 
 "makes shifting easier
 noremap < <<
@@ -230,7 +232,7 @@ set clipboard=unnamed
 set fillchars+=vert:\ "trailing whitespace
 
 "start scrolling 8 lines from top/bottom of pane
-set scrolloff=8
+set scrolloff=20
 
 nnoremap // :noh<CR>
 
@@ -238,8 +240,9 @@ au BufReadPost TARGETS set syntax=python
 au BufReadPost *.cconf set syntax=python
 au BufReadPost *.test set filetype=sql
 au BufReadPost *.result set filetype=sql
+au BufReadPost cgdbrc set filetype=vim
 
-let g:tagless_context_lines=2
+let g:tagless_context_lines=1
 let g:tagless_highlight_result=1
 let g:tagless_window_height=30
 let g:tagless_enable_shitty_syntax_highlighting=1
@@ -259,4 +262,62 @@ endif
 
 " recursively find tags files
 set tags=tags;/
+set autoread
 
+"
+" THEME
+"
+
+set background=dark
+set t_Co=256
+
+let python_highlight_all = 1
+let c_gnu = 1
+
+hi Normal ctermfg=253 ctermbg=234 cterm=None
+hi Todo ctermfg=243 ctermbg=235 cterm=Bold
+hi String ctermfg=yellow ctermbg=None cterm=None
+hi Cursor ctermfg=red ctermbg=None cterm=None
+hi SpecialKey ctermfg=87 ctermbg=None cterm=None
+hi Directory ctermfg=76 ctermbg=None cterm=None
+hi ErrorMsg ctermfg=124 ctermbg=White cterm=None
+hi PreProc ctermfg=246 ctermbg=None cterm=None
+hi Type ctermfg=75 ctermbg=None cterm=Bold
+hi StorageClass ctermfg=75 ctermbg=None cterm=Bold
+hi Structure ctermfg=75 ctermbg=None cterm=Bold
+hi Typedef ctermfg=75 ctermbg=None cterm=Bold
+hi Comment ctermfg=240 ctermbg=None cterm=None
+hi Identifier ctermfg=75 ctermbg=None cterm=None
+hi Function ctermfg=75 ctermbg=None cterm=Bold
+hi DiffText ctermfg=88 ctermbg=250 cterm=None
+hi Constant ctermfg=208 ctermbg=None cterm=None
+hi Search ctermfg=233 ctermbg=118 cterm=None
+hi Error ctermfg=233 ctermbg=124 cterm=None
+hi Special ctermfg=160 ctermbg=None cterm=None
+hi Operator ctermfg=red ctermbg=None cterm=None
+hi Ignore ctermfg=220 ctermbg=None cterm=None
+hi Underline ctermfg=244 ctermbg=None cterm=None
+
+hi Conditional cterm=None ctermfg=red ctermbg=None
+hi Statement cterm=None ctermfg=red ctermbg=None
+hi Repeat cterm=None ctermfg=red ctermbg=None
+
+hi FoldColumn ctermfg=247 ctermbg=None cterm=None
+hi StatusLineNC ctermbg=247 ctermfg=234 cterm=None
+hi StatusLine ctermbg=247 ctermfg=233 cterm=None
+hi VertSplit ctermfg=234 ctermbg=234 cterm=None
+
+hi LineNr ctermfg=244 ctermbg=234 cterm=None
+hi NonText ctermfg=87 ctermbg=None cterm=None
+
+hi Pmenu ctermfg=White ctermbg=black cterm=None
+hi PmenuSel ctermfg=black ctermbg=Gray cterm=None
+hi PmenuSbar ctermfg=DarkGray ctermbg=DarkGray cterm=None
+hi PmenuThumb ctermfg=Gray ctermbg=Gray cterm=None
+
+set cursorline
+hi CursorLine cterm=NONE ctermbg=black
+
+"
+" END THEME
+"
