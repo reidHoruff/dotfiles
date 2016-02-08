@@ -4,7 +4,7 @@ cd "$(dirname "$0")"
 
 cp ~/.tmux.conf ./dotfiles/.tmux.conf
 cp ~/.vimrc ./dotfiles/.vimrc
-cp ~/.zshrc ./dotfiles/.zshrc
+cp ~/.bash_conf ./dotfiles/.bash_conf
 
 git add .
 git commit -m "update"
