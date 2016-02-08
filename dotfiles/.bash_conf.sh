@@ -1,5 +1,4 @@
 #export PS1="\[\033[38;5;166m\]\u\[$(tput sgr0)\]\[\033[38;5;242m\]@\[$(tput sgr0)\]\[\033[38;5;166m\]\H\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;4m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]\n\[$(tput sgr0)\]\[\033[38;5;242m\]\\$\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
-
 #export PS1="\[\033[38;5;172m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]\n\[$(tput sgr0)\]"
 export PS1="\[$(tput bold)\]\[\033[38;5;39m\]\w\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\]\n\[$(tput sgr0)\]"
 
@@ -15,7 +14,6 @@ function gs { git status; }
 function ins { sst_dump --command=scan --file="$1" --output_hex | less; }
 function mins { ldb --hex manifest_dump --path="$1" --verbose | less; }
 
-##These are good for dataswarm
 alias com='git commit -a'
 alias acom='git commit -a --amend'
 alias st='git status'
@@ -44,4 +42,5 @@ export EDITOR=vim
 
 #vim mode
 set -o vi
+#better tab completion for bash
 bind TAB:menu-complete
