@@ -221,9 +221,9 @@ set t_Co=256
 
 let python_highlight_all = 1
 let c_gnu = 1
-let bg = 233
+let bg = 234
 
-hi Normal ctermfg=015 ctermbg=232 cterm=None
+hi Normal ctermfg=253  ctermbg=234 cterm=None
 hi Todo ctermfg=243 ctermbg=235 cterm=Bold
 hi String ctermfg=186 ctermbg=None cterm=None
 hi Cursor ctermfg=red ctermbg=None cterm=None
@@ -240,7 +240,7 @@ hi Identifier ctermfg=75 ctermbg=None cterm=None
 hi Function ctermfg=75 ctermbg=None cterm=Bold
 hi DiffText ctermfg=88 ctermbg=250 cterm=None
 hi Constant ctermfg=208 ctermbg=None cterm=None
-hi Search ctermfg=black ctermbg=186 cterm=None
+hi Search ctermfg=black ctermbg=041 cterm=None
 hi Error ctermfg=232 ctermbg=124 cterm=None
 hi Special ctermfg=160 ctermbg=None cterm=None
 hi Operator ctermfg=red ctermbg=None cterm=None
@@ -255,9 +255,9 @@ hi Repeat cterm=None ctermfg=red ctermbg=None
 hi FoldColumn ctermfg=247 ctermbg=None cterm=None
 hi StatusLine ctermbg=234 ctermfg=253 cterm=None
 hi StatusLineNC ctermbg=234 ctermfg=250 cterm=None
-hi VertSplit ctermfg=232 ctermbg=232 cterm=None
+hi VertSplit ctermfg=234 ctermbg=234 cterm=None
 
-hi LineNr ctermfg=239 ctermbg=232 cterm=None
+hi LineNr ctermfg=239 ctermbg=234 cterm=None
 hi CursorLineNr ctermfg=white ctermbg=234 cterm=None
 hi NonText ctermfg=87 ctermbg=None cterm=None
 
@@ -267,7 +267,7 @@ hi PmenuSbar ctermfg=DarkGray ctermbg=DarkGray cterm=None
 hi PmenuThumb ctermfg=Gray ctermbg=Gray cterm=None
 
 set cursorline
-hi CursorLine cterm=NONE ctermbg=233
+hi CursorLine cterm=NONE ctermbg=234
 
 "
 " END THEME
