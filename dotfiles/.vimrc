@@ -88,29 +88,18 @@ noremap <Right> ""
 noremap! <Right> <Esc>
 
 "some useful shortcuts
-map gt :TagbarToggle<CR><c-w>=
-map gl :CtrlPLine<CR>
 "map <C-f> :CtrlPBuffer<CR>
 map <C-f> q:i
 map <leader>s :w<CR>
-map ga :A<CR>
-map gn :NERDTreeToggle<CR><c-w>=
-map ge :IH<CR>
+map <leader>a :A<CR>
+map <leader>e :IH<CR>
 map qq :q!<CR>
-map cc ciw
 map G Gzz
-map gp gh<CR>
-map gr :%s/\<<C-r><C-w>\>/
-map gU gUiwe
-map gu guiwe
+map <leader>r :%s/\<<C-r><C-w>\>/
 map * <C-]>zz
 map ( :tp<CR>
 map ) :tn<CR>
-map U :redo<CR>
-map gv :e ~/.vimrc<CR>
 map K <Plug>(expand_region_expand)
-map gN :NERDTreeFind<CR><c-w>=
-map gy :OpenSession!<CR>
 map <leader>r :so ~/.vimrc<CR>
 map <leader>q :wq<CR>
 
@@ -254,8 +243,8 @@ hi Statement cterm=None ctermfg=red ctermbg=None
 hi Repeat cterm=None ctermfg=red ctermbg=None
 
 hi FoldColumn ctermfg=247 ctermbg=None cterm=None
-hi StatusLine ctermbg=234 ctermfg=253 cterm=None
-hi StatusLineNC ctermbg=234 ctermfg=250 cterm=None
+hi StatusLine ctermbg=235 ctermfg=253 cterm=None
+hi StatusLineNC ctermbg=235 ctermfg=250 cterm=None
 hi VertSplit ctermfg=234 ctermbg=234 cterm=None
 
 hi LineNr ctermfg=239 ctermbg=234 cterm=None
