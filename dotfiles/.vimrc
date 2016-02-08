@@ -188,7 +188,6 @@ au BufReadPost *.cconf set syntax=python
 au BufReadPost *.test set filetype=sql
 au BufReadPost *.result set filetype=sql
 au BufReadPost cgdbrc set filetype=vim
-au BufReadPost .bash_conf set syntax=sh
 
 let g:tagless_context_lines=1
 let g:tagless_highlight_result=1
