@@ -247,6 +247,7 @@ hi Operator ctermfg=red ctermbg=None cterm=None
 hi Ignore ctermfg=220 ctermbg=None cterm=None
 hi Underline ctermfg=244 ctermbg=None cterm=None
 hi Visual cterm=none ctermbg=white ctermfg=black
+hi MatchParen cterm=none ctermbg=46 ctermfg=black
 
 hi Conditional cterm=None ctermfg=red ctermbg=None
 hi Statement cterm=None ctermfg=red ctermbg=None
