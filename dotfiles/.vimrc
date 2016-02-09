@@ -159,9 +159,18 @@ noremap > >>
 "remember cursor position
 set nosol
 
-"persistent undo history. not worth...
-"set undofile
-"set undodir=~/.vim/undodir
+" [FB-ONLY]
+" Can't set SELinux security context on nfs, which FB homedirs use, so
+" override the default location
+let undo_base_dir = $HOME . '/local/.vim/'
+for directory in ["backup", "swap", "undo"]
+  silent! call mkdir(undo_base_dir . directory, "p")
+endfor
+let &backupdir = undo_base_dir . '/backup//'
+let &directory = undo_base_dir . '/swap//'
+let &undodir = undo_base_dir . '/undo//'
+" Keep undo history across sessions, by storing in file. This never works
+set undofile
 
 "use system clipboard as default reg. only works locally
 set clipboard=unnamed
@@ -220,7 +229,7 @@ hi SpecialKey ctermfg=87 ctermbg=None cterm=None
 hi Directory ctermfg=76 ctermbg=None cterm=None
 hi ErrorMsg ctermfg=253 ctermbg=124 cterm=None
 hi PreProc ctermfg=246 ctermbg=None cterm=None
-hi Type ctermfg=75 ctermbg=None cterm=Bold
+hi Type ctermfg=75 ctermbg=None cterm=None
 hi StorageClass ctermfg=75 ctermbg=None cterm=Bold
 hi Structure ctermfg=75 ctermbg=None cterm=Bold
 hi Typedef ctermfg=75 ctermbg=None cterm=Bold
@@ -230,7 +239,7 @@ hi Function ctermfg=75 ctermbg=None cterm=Bold
 hi DiffText ctermfg=88 ctermbg=250 cterm=None
 hi Constant ctermfg=208 ctermbg=None cterm=None
 hi Search ctermfg=black ctermbg=041 cterm=None
-hi Error ctermfg=232 ctermbg=124 cterm=None
+hi Error ctermfg=196 ctermbg=None cterm=None
 hi Special ctermfg=160 ctermbg=None cterm=None
 hi Operator ctermfg=red ctermbg=None cterm=None
 hi Ignore ctermfg=220 ctermbg=None cterm=None
@@ -258,7 +267,6 @@ hi PmenuThumb ctermfg=Gray ctermbg=Gray cterm=None
 
 set cursorline
 hi CursorLine cterm=NONE ctermbg=234
-
 "
 " END THEME
 "
