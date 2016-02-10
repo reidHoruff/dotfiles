@@ -12,7 +12,6 @@ Plugin 'gmarik/vundle'
 "Plugin 'ludovicchabant/vim-lawrencium'
 "Plugin 'Valloric/YouCompleteMe',
 "Plugin 'mbbill/undotree'
-Plugin 'vim-scripts/a.vim'
 "Plugin 'flazz/vim-colorschemes'
 Plugin 'kien/ctrlp.vim'
 "Plugin 'scrooloose/nerdtree'
@@ -25,12 +24,13 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 "Plugin 'Raimondi/delimitMate'
 "Plugin 'wincent/Command-T'
 "Plugin 'terryma/vim-expand-region'
-"Plugin 'ihacklog/HiCursorWords'
 "Plugin 'xolox/vim-misc'
 "Plugin 'xolox/vim-notes'
 "Plugin 'xolox/vim-session'
 Plugin 'tmux-plugins/vim-tmux'
 Plugin 'reidHoruff/tagless'
+"Plugin 'reidhoruff/HiCursorWords'
+Plugin 'reidhoruff/a.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tpope/vim-fugitive'
 Plugin 'ntpeters/vim-better-whitespace'
@@ -222,7 +222,7 @@ let c_gnu = 1
 let bg = 234
 
 hi Normal ctermfg=253  ctermbg=234 cterm=None
-hi Todo ctermfg=243 ctermbg=235 cterm=Bold
+hi Todo ctermfg=black ctermbg=251 cterm=None
 hi String ctermfg=186 ctermbg=None cterm=None
 hi Cursor ctermfg=red ctermbg=None cterm=None
 hi SpecialKey ctermfg=87 ctermbg=None cterm=None
@@ -230,12 +230,12 @@ hi Directory ctermfg=76 ctermbg=None cterm=None
 hi ErrorMsg ctermfg=253 ctermbg=124 cterm=None
 hi PreProc ctermfg=246 ctermbg=None cterm=None
 hi Type ctermfg=75 ctermbg=None cterm=None
-hi StorageClass ctermfg=75 ctermbg=None cterm=Bold
-hi Structure ctermfg=75 ctermbg=None cterm=Bold
-hi Typedef ctermfg=75 ctermbg=None cterm=Bold
+hi StorageClass ctermfg=75 ctermbg=None cterm=None
+hi Structure ctermfg=75 ctermbg=None cterm=None
+hi Typedef ctermfg=75 ctermbg=None cterm=None
 hi Comment ctermfg=243 ctermbg=None cterm=None
 hi Identifier ctermfg=75 ctermbg=None cterm=None
-hi Function ctermfg=75 ctermbg=None cterm=Bold
+hi Function ctermfg=75 ctermbg=None cterm=None
 hi DiffText ctermfg=88 ctermbg=250 cterm=None
 hi Constant ctermfg=208 ctermbg=None cterm=None
 hi Search ctermfg=black ctermbg=041 cterm=None
