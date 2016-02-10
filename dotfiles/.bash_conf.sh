@@ -13,7 +13,7 @@ function vs { tmux split-window -h; }
 function sp { tmux split-window -v; }
 function qq { exit; }
 function fpp { grep -rinI -B 3 -A 3 --include="*.cc" --include="*.h" "$1" .;}
-function s { source ~/.bashrc; echo sourced; }
+function s { source ~/.bash_conf.sh; echo sourced; }
 function gs { git status; }
 function ins { sst_dump --command=scan --file="$1" --output_hex | less; }
 function mins { ldb --hex manifest_dump --path="$1" --verbose | less; }
