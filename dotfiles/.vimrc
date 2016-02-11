@@ -36,6 +36,9 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'ntpeters/vim-better-whitespace'
 "Plugin 'joshdick/onedark.vim'
 "Plugin 'vim-scripts/Conque-GDB'
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plugin 'junegunn/fzf.vim'
+
 
 call vundle#end()
 filetype plugin indent on
@@ -93,6 +96,8 @@ map <C-f> q:i
 map <leader>s :w<CR>
 map <leader>a :A<CR>
 map <leader>e :IH<CR>
+map <leader>n :cn<CR>zz
+map <leader>p :cp<CR>zz
 map qq :q!<CR>
 map G Gzz
 map <leader>r :%s/\<<C-r><C-w>\>/
@@ -192,7 +197,10 @@ let g:tagless_highlight_result=1
 let g:tagless_window_height=30
 let g:tagless_enable_shitty_syntax_highlighting=1
 let g:tagless_infer_file_types=1
-map gf :TaglessCW<CR>
+map <leader>f :TaglessCW<CR>
+map <leader>l :Lines<CR>
+map <leader>o :FZF<CR>
+map <leader>t :Tags<CR>
 
 "remember cursor positions
 if has("autocmd")
@@ -252,8 +260,8 @@ hi Statement cterm=None ctermfg=red ctermbg=None
 hi Repeat cterm=None ctermfg=red ctermbg=None
 
 hi FoldColumn ctermfg=247 ctermbg=None cterm=None
-hi StatusLine ctermbg=235 ctermfg=253 cterm=None
-hi StatusLineNC ctermbg=235 ctermfg=250 cterm=None
+hi StatusLine ctermbg=237 ctermfg=253 cterm=None
+hi StatusLineNC ctermbg=237 ctermfg=252 cterm=None
 hi VertSplit ctermfg=234 ctermbg=234 cterm=None
 
 hi LineNr ctermfg=239 ctermbg=234 cterm=None

@@ -4,7 +4,9 @@
 #export PS1="\[\033[48;5;33m\]\w\[$(tput sgr0)\]\[\033[48;5;-1m\]\n\[$(tput sgr0)\]"
 #export PS1="\[\033[38;5;232m\]\[\033[48;5;33m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]\[\033[48;5;-1m\]\n\[$(tput sgr0)\]"
 #export PS1="\[\033[38;5;232m\]\[\033[48;5;15m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]\[\033[48;5;-1m\]\n\[$(tput sgr0)\]"
-export PS1="\[$(tput bold)\]\[\033[38;5;232m\]\[\033[48;5;39m\]\w\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\]\[\033[48;5;-1m\]\n\[$(tput sgr0)\]"
+#export PS1="\[$(tput bold)\]\[\033[38;5;232m\]\[\033[48;5;39m\]\w\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\]\[\033[48;5;-1m\]\n\[$(tput sgr0)\]"
+#export PS1="\[\033[48;5;28m\]\u@\w\[$(tput sgr0)\]\[\033[48;5;-1m\]\n\[$(tput sgr0)\]"
+export PS1="\[\033[48;5;22m\]\u@\w\[$(tput sgr0)\]\[\033[48;5;-1m\]\n\[$(tput sgr0)\]"
 
 function new { git checkout -b $1; up; }
 function co { git checkout $1; }
@@ -23,20 +25,19 @@ alias acom='git commit -a --amend'
 alias st='git status'
 alias br='git branch'
 alias cont='git rebase --continue'
-alias af='arc feature'
+alias gls='git branch'
 alias ..="cd .."
 alias ...="cd ../.."
 alias parc='https_proxy=fwdproxy:8080 arc'
 alias gl='git log --graph --full-history --all --color -n 30 --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"'
 alias show='git show'
-alias gs='git status'
 alias gundo='git reset --soft HEAD@{1}'
 alias vb="vim ~/.bashrc"
 alias gdb="gdb -q"
 alias cgdb="cgdb -q"
 alias gg="git grep -in"
-alias yum="sudo yum"
 alias e="vim"
+alias m="make -j30"
 
 #When 'grepping' add color!
 alias grep="grep --color"
