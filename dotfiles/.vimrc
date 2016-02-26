@@ -181,7 +181,7 @@ set undofile
 set clipboard=unnamed
 
 "start scrolling 8 lines from top/bottom of pane
-set scrolloff=20
+set scrolloff=10
 
 "kill search
 nnoremap // :noh<CR>
@@ -192,7 +192,7 @@ au BufReadPost *.test set filetype=sql
 au BufReadPost *.result set filetype=sql
 au BufReadPost cgdbrc set filetype=vim
 
-let g:tagless_context_lines=1
+let g:tagless_context_lines=3
 let g:tagless_highlight_result=1
 let g:tagless_window_height=30
 let g:tagless_enable_shitty_syntax_highlighting=1

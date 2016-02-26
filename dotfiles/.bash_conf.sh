@@ -38,6 +38,7 @@ alias cgdb="cgdb -q"
 alias gg="git grep -in"
 alias e="vim"
 alias m="make -j30"
+alias la="ls -lah --group-directories-first"
 
 #When 'grepping' add color!
 alias grep="grep --color"
