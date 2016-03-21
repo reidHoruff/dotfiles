@@ -192,7 +192,7 @@ au BufReadPost *.test set filetype=sql
 au BufReadPost *.result set filetype=sql
 au BufReadPost cgdbrc set filetype=vim
 
-let g:tagless_context_lines=3
+let g:tagless_context_lines=7
 let g:tagless_highlight_result=1
 let g:tagless_window_height=30
 let g:tagless_enable_shitty_syntax_highlighting=1
@@ -246,7 +246,7 @@ hi Identifier ctermfg=75 ctermbg=None cterm=None
 hi Function ctermfg=75 ctermbg=None cterm=None
 hi DiffText ctermfg=88 ctermbg=250 cterm=None
 hi Constant ctermfg=208 ctermbg=None cterm=None
-hi Search ctermfg=black ctermbg=041 cterm=None
+hi Search ctermfg=black ctermbg=228 cterm=None
 hi Error ctermfg=196 ctermbg=None cterm=None
 hi Special ctermfg=160 ctermbg=None cterm=None
 hi Operator ctermfg=red ctermbg=None cterm=None
