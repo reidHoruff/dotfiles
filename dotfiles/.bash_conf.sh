@@ -18,7 +18,9 @@ function fpp { grep -rinI -B 3 -A 3 --include="*.cc" --include="*.h" "$1" .;}
 function s { source ~/.bash_conf.sh; echo sourced; }
 function gs { git status; }
 function ins { sst_dump --command=scan --file="$1" --output_hex | less; }
-function mins { ldb --hex manifest_dump --path="$1" --verbose | less; }
+LDB=~/rocksdb/ldb
+function mins { $LDB --hex manifest_dump --path="$1" --verbose | less; }
+function wal { $LDB dump_wal --walfile="$1" --header --print_value | less; }
 
 alias com='git commit -a'
 alias acom='git commit -a --amend'
@@ -39,6 +41,7 @@ alias gg="git grep -in"
 alias e="vim"
 alias m="make -j30"
 alias la="ls -lah --group-directories-first"
+alias weather="wget -O - http://wttr.in/seattle -q"
 
 #When 'grepping' add color!
 alias grep="grep --color"

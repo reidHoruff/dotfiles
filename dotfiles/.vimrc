@@ -38,6 +38,7 @@ Plugin 'ntpeters/vim-better-whitespace'
 "Plugin 'vim-scripts/Conque-GDB'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
+Plugin 'tpope/vim-dispatch'
 
 
 call vundle#end()
@@ -65,7 +66,7 @@ let g:HiCursorWords_delay = 300
 "always show status bar
 set laststatus=2
 "always show col/line num in status bar
-"set ruler
+set ruler
 
 "command t stuff
 "let g:CommandTMaxFiles=350000
@@ -98,6 +99,9 @@ map <leader>a :A<CR>
 map <leader>e :IH<CR>
 map <leader>n :cn<CR>zz
 map <leader>p :cp<CR>zz
+map <leader>d :Gvdiff<CR>
+map <Leader>u :%s/\<<C-r><C-w>\>/
+map <Leader>m :silent :make -j32<CR>:silent :exe "normal \<c-l>"<CR>
 map qq :q!<CR>
 map G Gzz
 map <leader>r :%s/\<<C-r><C-w>\>/
@@ -259,7 +263,8 @@ hi Conditional cterm=None ctermfg=red ctermbg=None
 hi Statement cterm=None ctermfg=red ctermbg=None
 hi Repeat cterm=None ctermfg=red ctermbg=None
 
-hi FoldColumn ctermfg=247 ctermbg=None cterm=None
+hi FoldColumn ctermfg=248 ctermbg=None cterm=None
+hi Folded ctermfg=248 ctermbg=None cterm=None
 hi StatusLine ctermbg=237 ctermfg=253 cterm=None
 hi StatusLineNC ctermbg=237 ctermfg=252 cterm=None
 hi VertSplit ctermfg=234 ctermbg=234 cterm=None
@@ -274,7 +279,12 @@ hi PmenuSbar ctermfg=DarkGray ctermbg=DarkGray cterm=None
 hi PmenuThumb ctermfg=Gray ctermbg=Gray cterm=None
 
 set cursorline
-hi CursorLine cterm=NONE ctermbg=234
+hi CursorLine cterm=NONE ctermbg=NONE
+
+hi DiffAdd    cterm=bold ctermfg=black ctermbg=41 gui=none guifg=bg guibg=Red
+hi DiffDelete cterm=bold ctermfg=black ctermbg=161 gui=none guifg=bg guibg=Red
+hi DiffChange cterm=bold ctermfg=black ctermbg=32 gui=none guifg=bg guibg=Red
+hi DiffText   cterm=bold ctermfg=255 ctermbg=27 gui=none guifg=bg guibg=Red
 "
 " END THEME
 "
