@@ -192,8 +192,6 @@ nnoremap // :noh<CR>
 
 au BufReadPost TARGETS set syntax=python
 au BufReadPost *.cconf set syntax=python
-au BufReadPost *.test set filetype=sql
-au BufReadPost *.result set filetype=sql
 au BufReadPost cgdbrc set filetype=vim
 
 let g:tagless_context_lines=7

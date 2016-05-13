@@ -20,7 +20,13 @@ function gs { git status; }
 function ins { sst_dump --command=scan --file="$1" --output_hex | less; }
 LDB=~/rocksdb/ldb
 function mins { $LDB --hex manifest_dump --path="$1" --verbose | less; }
-function wal { $LDB dump_wal --walfile="$1" --header --print_value | less; }
+function wal { $LDB dump_wal --walfile="$1" --header; }
+function all_wal {
+  for i in *.log; do
+    echo $i
+    wal $i
+  done
+}
 
 alias com='git commit -a'
 alias acom='git commit -a --amend'
@@ -32,6 +38,7 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias parc='https_proxy=fwdproxy:8080 arc'
 alias gl='git log --graph --full-history --all --color -n 30 --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"'
+alias gla='git log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"'
 alias show='git show'
 alias gundo='git reset --soft HEAD@{1}'
 alias vb="vim ~/.bashrc"
@@ -42,6 +49,7 @@ alias e="vim"
 alias m="make -j30"
 alias la="ls -lah --group-directories-first"
 alias weather="wget -O - http://wttr.in/seattle -q"
+alias watch='watch -n1 '
 
 #When 'grepping' add color!
 alias grep="grep --color"
