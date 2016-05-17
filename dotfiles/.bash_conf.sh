@@ -6,7 +6,8 @@
 #export PS1="\[\033[38;5;232m\]\[\033[48;5;15m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]\[\033[48;5;-1m\]\n\[$(tput sgr0)\]"
 #export PS1="\[$(tput bold)\]\[\033[38;5;232m\]\[\033[48;5;39m\]\w\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\]\[\033[48;5;-1m\]\n\[$(tput sgr0)\]"
 #export PS1="\[\033[48;5;28m\]\u@\w\[$(tput sgr0)\]\[\033[48;5;-1m\]\n\[$(tput sgr0)\]"
-export PS1="\[\033[48;5;22m\]\u@\w\[$(tput sgr0)\]\[\033[48;5;-1m\]\n\[$(tput sgr0)\]"
+#export PS1="\[\033[48;5;22m\]\u@\w\[$(tput sgr0)\]\[\033[48;5;-1m\]\n\[$(tput sgr0)\]"
+export PS1="\[[1m\]\[\033[38;5;232m\]\[\033[48;5;39m\]\w\[[m\]\[[m\]\[\033[38;5;15m\]\[\033[48;5;-1m\]\n\[[m\]"
 
 function new { git checkout -b $1; up; }
 function co { git checkout $1; }
