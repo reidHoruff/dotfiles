@@ -231,7 +231,7 @@ let python_highlight_all = 1
 let c_gnu = 1
 let bg = 234
 
-hi Normal ctermfg=253  ctermbg=232 cterm=None
+hi Normal ctermfg=253  ctermbg=000 cterm=None
 hi Todo ctermfg=black ctermbg=251 cterm=None
 hi String ctermfg=186 ctermbg=None cterm=None
 hi Cursor ctermfg=red ctermbg=None cterm=None
@@ -265,10 +265,10 @@ hi FoldColumn ctermfg=248 ctermbg=None cterm=None
 hi Folded ctermfg=248 ctermbg=None cterm=None
 hi StatusLine ctermbg=055 ctermfg=255 cterm=None
 hi StatusLineNC ctermbg=055 ctermfg=254 cterm=None
-hi VertSplit ctermfg=232 ctermbg=232 cterm=None
+hi VertSplit ctermfg=000 ctermbg=000 cterm=None
 
-hi LineNr ctermfg=239 ctermbg=232 cterm=None
-hi CursorLineNr ctermfg=white ctermbg=232 cterm=None
+hi LineNr ctermfg=239 ctermbg=000 cterm=None
+hi CursorLineNr ctermfg=white ctermbg=000 cterm=None
 hi NonText ctermfg=87 ctermbg=None cterm=None
 
 hi Pmenu ctermfg=White ctermbg=black cterm=None
