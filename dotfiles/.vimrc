@@ -39,6 +39,7 @@ Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
 Plugin 'tpope/vim-dispatch'
+Plugin 'wincent/terminus'
 
 
 call vundle#end()
