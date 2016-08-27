@@ -33,6 +33,7 @@ function all_wal {
 
 function send {
   if [ -z $2 ] ; then
+    echo $1 $SERVER:~
     scp $1 $SERVER:~
   else
     scp $1 $SERVER:$2
@@ -63,14 +64,14 @@ function n {
 
 function conf {
   exe mv .bashrc .bashrc.orig
-  send ~/.bash_conf.remote.sh .bashrc &
-  send ~/.vimrc.remote .vimrc &
-  send ~/.tmux.conf.remote .tmux.conf &
-  send ~/.inputrc &
+  send ~/.bash_conf.remote.sh .bashrc
+  send ~/.vimrc.remote .vimrc
+  send ~/.tmux.conf.remote .tmux.conf
+  send ~/.inputrc
 }
 
 function unconf {
-  exe mv ~/.bashrc.orig ~/.bashrc
+  exe mv .bashrc.orig .bashrc
 }
 
 function con {
