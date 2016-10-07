@@ -103,7 +103,7 @@ map <leader>p :cp<CR>zz
 map <leader>d :Gvdiff<CR>
 map <Leader>u :%s/\<<C-r><C-w>\>/
 map <Leader>m :silent :make -j32<CR>:silent :exe "normal \<c-l>"<CR>
-map qq :q!<CR>
+"map qq :q!<CR>
 map G Gzz
 map <leader>r :%s/\<<C-r><C-w>\>/
 map * <C-]>zz
@@ -111,7 +111,7 @@ map ( :tp<CR>
 map ) :tn<CR>
 map K <Plug>(expand_region_expand)
 map <leader>r :so ~/.vimrc<CR>
-map <leader>q :wq<CR>
+"map <leader>q :wq<CR>
 
 " fuzzy file opener... there are many
 map go :CtrlPRoot<CR>
@@ -196,6 +196,8 @@ nnoremap // :noh<CR>
 au BufReadPost TARGETS set syntax=python
 au BufReadPost *.cconf set syntax=python
 au BufReadPost cgdbrc set filetype=vim
+au BufReadPost *.tw set filetype=python
+au BufReadPost *.fbpkg.cconf set filetype=python
 
 let g:tagless_context_lines=7
 let g:tagless_highlight_result=1
