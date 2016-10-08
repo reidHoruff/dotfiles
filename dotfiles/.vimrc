@@ -101,7 +101,7 @@ map <leader>e :IH<CR>
 map <leader>n :cn<CR>zz
 map <leader>p :cp<CR>zz
 map <leader>d :Gvdiff<CR>
-map <Leader>u :%s/\<<C-r><C-w>\>/
+map <Leader>u :.s/\<<C-r><C-w>\>/
 map <Leader>m :silent :make -j32<CR>:silent :exe "normal \<c-l>"<CR>
 "map qq :q!<CR>
 map G Gzz
@@ -188,7 +188,7 @@ set undofile
 set clipboard=unnamed
 
 "start scrolling 8 lines from top/bottom of pane
-set scrolloff=10
+set scrolloff=0
 
 "kill search
 nnoremap // :noh<CR>
@@ -229,6 +229,7 @@ set autoread
 "
 syntax enable
 set number
+set relativenumber
 set background=dark
 set t_Co=256
 
