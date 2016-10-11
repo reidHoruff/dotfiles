@@ -101,9 +101,9 @@ map <leader>e :IH<CR>
 map <leader>n :cn<CR>zz
 map <leader>p :cp<CR>zz
 map <leader>d :Gvdiff<CR>
-map <Leader>u :.s/\<<C-r><C-w>\>/
+map <Leader>u :.,$s/\<<C-r><C-w>\>/
 map <Leader>m :silent :make -j32<CR>:silent :exe "normal \<c-l>"<CR>
-"map qq :q!<CR>
+map qq :q!<CR>
 map G Gzz
 map <leader>r :%s/\<<C-r><C-w>\>/
 map * <C-]>zz
@@ -111,7 +111,7 @@ map ( :tp<CR>
 map ) :tn<CR>
 map K <Plug>(expand_region_expand)
 map <leader>r :so ~/.vimrc<CR>
-"map <leader>q :wq<CR>
+map <leader>q :wq<CR>
 
 " fuzzy file opener... there are many
 map go :CtrlPRoot<CR>
@@ -208,6 +208,7 @@ map <leader>f :TaglessCW<CR>
 map <leader>l :Lines<CR>
 map <leader>o :FZF<CR>
 map <leader>t :Tags<CR>
+map <leader>b :Buffers<CR>
 
 "remember cursor positions
 if has("autocmd")
