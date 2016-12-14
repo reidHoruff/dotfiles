@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 git pull
 cd "$(dirname "$0")"
 
