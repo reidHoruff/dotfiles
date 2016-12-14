@@ -40,6 +40,7 @@ Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
 Plugin 'tpope/vim-dispatch'
 Plugin 'wincent/terminus'
+Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 
 
 call vundle#end()
@@ -114,7 +115,8 @@ map <leader>r :so ~/.vimrc<CR>
 map <leader>q :wq<CR>
 
 " fuzzy file opener... there are many
-map go :CtrlPRoot<CR>
+"map <C-f> :CtrlPBuffer<CR>
+map go :CtrlPBuffer<CR>
 let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:20,results:20'
 " map go :FBVimMuralSearch<CR>
 " map go :CommandT<CR>
@@ -188,7 +190,7 @@ set undofile
 set clipboard=unnamed
 
 "start scrolling 8 lines from top/bottom of pane
-set scrolloff=0
+set scrolloff=8
 
 "kill search
 nnoremap // :noh<CR>
@@ -238,7 +240,7 @@ let python_highlight_all = 1
 let c_gnu = 1
 let bg = 234
 
-hi Normal ctermfg=253  ctermbg=000 cterm=None
+hi Normal ctermfg=015  ctermbg=000 cterm=None
 hi Todo ctermfg=black ctermbg=251 cterm=None
 hi String ctermfg=186 ctermbg=None cterm=None
 hi Cursor ctermfg=red ctermbg=None cterm=None
@@ -255,13 +257,13 @@ hi Identifier ctermfg=75 ctermbg=None cterm=None
 hi Function ctermfg=75 ctermbg=None cterm=None
 hi DiffText ctermfg=88 ctermbg=250 cterm=None
 hi Constant ctermfg=208 ctermbg=None cterm=None
-hi Search ctermfg=black ctermbg=228 cterm=None
+hi Search ctermfg=black ctermbg=220 cterm=None
 hi Error ctermfg=196 ctermbg=None cterm=None
 hi Special ctermfg=160 ctermbg=None cterm=None
 hi Operator ctermfg=red ctermbg=None cterm=None
 hi Ignore ctermfg=220 ctermbg=None cterm=None
 hi Underline ctermfg=244 ctermbg=None cterm=None
-hi Visual cterm=none ctermbg=white ctermfg=black
+hi Visual cterm=none ctermbg=020 ctermfg=None
 hi MatchParen cterm=none ctermbg=46 ctermfg=black
 
 hi Conditional cterm=None ctermfg=red ctermbg=None
@@ -270,11 +272,11 @@ hi Repeat cterm=None ctermfg=red ctermbg=None
 
 hi FoldColumn ctermfg=248 ctermbg=None cterm=None
 hi Folded ctermfg=248 ctermbg=None cterm=None
-hi StatusLine ctermbg=055 ctermfg=255 cterm=None
-hi StatusLineNC ctermbg=055 ctermfg=254 cterm=None
-hi VertSplit ctermfg=000 ctermbg=000 cterm=None
+hi StatusLine ctermbg=022 ctermfg=255 cterm=None
+hi StatusLineNC ctermbg=022 ctermfg=254 cterm=None
+hi VertSplit ctermfg=000 ctermbg=022 cterm=None
 
-hi LineNr ctermfg=239 ctermbg=000 cterm=None
+hi LineNr ctermfg=250 ctermbg=000 cterm=None
 hi CursorLineNr ctermfg=white ctermbg=000 cterm=None
 hi NonText ctermfg=87 ctermbg=None cterm=None
 
@@ -290,7 +292,12 @@ hi DiffAdd    cterm=bold ctermfg=black ctermbg=41 gui=none guifg=bg guibg=Red
 hi DiffDelete cterm=bold ctermfg=black ctermbg=161 gui=none guifg=bg guibg=Red
 hi DiffChange cterm=bold ctermfg=black ctermbg=32 gui=none guifg=bg guibg=Red
 hi DiffText   cterm=bold ctermfg=255 ctermbg=27 gui=none guifg=bg guibg=Red
+hi CursorLine   cterm=NONE ctermfg=None ctermbg=18
 "
 " END THEME
 "
-
+augroup CursorLine
+  au!
+  au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  au WinLeave * setlocal nocursorline
+augroup END
