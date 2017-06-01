@@ -8,8 +8,8 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/vundle'
-"Plugin 'Lokaltog/vim-easymotion'
-"Plugin 'ludovicchabant/vim-lawrencium'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'ludovicchabant/vim-lawrencium'
 "Plugin 'Valloric/YouCompleteMe',
 "Plugin 'mbbill/undotree'
 "Plugin 'flazz/vim-colorschemes'
@@ -36,9 +36,9 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'ntpeters/vim-better-whitespace'
 "Plugin 'joshdick/onedark.vim'
 "Plugin 'vim-scripts/Conque-GDB'
-Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
-Plugin 'tpope/vim-dispatch'
+"Plugin 'tpope/vim-dispatch'
 Plugin 'wincent/terminus'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 
@@ -106,6 +106,8 @@ map <Leader>u :.,$s/\<<C-r><C-w>\>/
 map <Leader>m :silent :make -j32<CR>:silent :exe "normal \<c-l>"<CR>
 map qq :q!<CR>
 map G Gzz
+map gU gUiw
+map gu guiw
 map <leader>r :%s/\<<C-r><C-w>\>/
 map * <C-]>zz
 map ( :tp<CR>
@@ -137,7 +139,7 @@ set softtabstop=2
 set shiftwidth=2
 set tabstop=2
 set autoindent
-set smartindent
+"set smartindent
 
 "ctrl+p stuff
 let g:ctrlp_by_filename = 1

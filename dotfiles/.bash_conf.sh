@@ -24,6 +24,12 @@ LDB=ldb
 function mins { $LDB --hex manifest_dump --path="$1" --verbose | less; }
 function wal { $LDB dump_wal --walfile="$1" --header; }
 
+function ca_rand {
+  tier=$1
+  ca $(smcc list-services $tier | sort -R | head -n1)
+}
+
+
 function all_wal {
   for i in *.log; do
     echo $i
@@ -102,6 +108,11 @@ alias m="make -j30"
 alias la="ls -lah --group-directories-first"
 alias weather="wget -O - http://wttr.in/seattle -q"
 alias watch='watch -n1 '
+alias my='cd ~/mysql/5.6/'
+alias ro='cd ~/rocksdb/'
+alias sc='cd ~/scripts/'
+alias fb='cd ~/fbcode'
+alias ww='cd ~/www/flib/intern/site/web/dba'
 
 #When 'grepping' add color!
 alias grep="grep --color"
