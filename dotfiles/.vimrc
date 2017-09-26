@@ -4,12 +4,13 @@ set shell=/bin/bash
 "vundle shit
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
 
 Plugin 'gmarik/vundle'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'ludovicchabant/vim-lawrencium'
+"Plugin 'Lokaltog/vim-easymotion'
+"Plugin 'ludovicchabant/vim-lawrencium'
 "Plugin 'Valloric/YouCompleteMe',
 "Plugin 'mbbill/undotree'
 "Plugin 'flazz/vim-colorschemes'
@@ -18,7 +19,7 @@ Plugin 'kien/ctrlp.vim'
 "Plugin 'jlanzarotta/bufexplorer'
 "Plugin 'solarnz/thrift.vim'
 "Plugin 'MattesGroeger/vim-bookmarks'
-Plugin 'octol/vim-cpp-enhanced-highlight'
+"Plugin 'octol/vim-cpp-enhanced-highlight'
 "Plugin 'majutsushi/tagbar'
 "Plugin 'tpope/vim-commentary'
 "Plugin 'Raimondi/delimitMate'
@@ -28,19 +29,19 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 "Plugin 'xolox/vim-notes'
 "Plugin 'xolox/vim-session'
 Plugin 'tmux-plugins/vim-tmux'
-Plugin 'reidHoruff/tagless'
+"Plugin 'reidHoruff/tagless'
 "Plugin 'reidhoruff/HiCursorWords'
-Plugin 'reidhoruff/a.vim'
+"Plugin 'reidhoruff/a.vim'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'tpope/vim-fugitive'
+"Plugin 'tpope/vim-fugitive'
 Plugin 'ntpeters/vim-better-whitespace'
 "Plugin 'joshdick/onedark.vim'
 "Plugin 'vim-scripts/Conque-GDB'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 "Plugin 'tpope/vim-dispatch'
-Plugin 'wincent/terminus'
-Plugin 'jeffkreeftmeijer/vim-numbertoggle'
+"Plugin 'wincent/terminus'
+"Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 
 
 call vundle#end()
@@ -235,69 +236,74 @@ set autoread
 syntax enable
 set number
 set relativenumber
-set background=dark
 set t_Co=256
 
 let python_highlight_all = 1
-let c_gnu = 1
-let bg = 234
 
-hi Normal ctermfg=015  ctermbg=000 cterm=None
-hi Todo ctermfg=black ctermbg=251 cterm=None
-hi String ctermfg=186 ctermbg=None cterm=None
-hi Cursor ctermfg=red ctermbg=None cterm=None
-hi SpecialKey ctermfg=87 ctermbg=None cterm=None
-hi Directory ctermfg=76 ctermbg=None cterm=None
-hi ErrorMsg ctermfg=253 ctermbg=124 cterm=None
-hi PreProc ctermfg=246 ctermbg=None cterm=None
-hi Type ctermfg=75 ctermbg=None cterm=None
-hi StorageClass ctermfg=75 ctermbg=None cterm=None
-hi Structure ctermfg=75 ctermbg=None cterm=None
-hi Typedef ctermfg=75 ctermbg=None cterm=None
-hi Comment ctermfg=243 ctermbg=None cterm=None
-hi Identifier ctermfg=75 ctermbg=None cterm=None
-hi Function ctermfg=75 ctermbg=None cterm=None
-hi DiffText ctermfg=88 ctermbg=250 cterm=None
-hi Constant ctermfg=208 ctermbg=None cterm=None
-hi Search ctermfg=black ctermbg=220 cterm=None
-hi Error ctermfg=196 ctermbg=None cterm=None
-hi Special ctermfg=160 ctermbg=None cterm=None
-hi Operator ctermfg=red ctermbg=None cterm=None
-hi Ignore ctermfg=220 ctermbg=None cterm=None
-hi Underline ctermfg=244 ctermbg=None cterm=None
-hi Visual cterm=none ctermbg=020 ctermfg=None
-hi MatchParen cterm=none ctermbg=46 ctermfg=black
+if 0
+  let c_gnu = 1
+  let bg = 234
+  set background=dark
 
-hi Conditional cterm=None ctermfg=red ctermbg=None
-hi Statement cterm=None ctermfg=red ctermbg=None
-hi Repeat cterm=None ctermfg=red ctermbg=None
+  hi Normal ctermfg=015  ctermbg=000 cterm=None
+  hi Todo ctermfg=black ctermbg=251 cterm=None
+  hi String ctermfg=186 ctermbg=None cterm=None
+  hi Cursor ctermfg=red ctermbg=None cterm=None
+  hi SpecialKey ctermfg=87 ctermbg=None cterm=None
+  hi Directory ctermfg=76 ctermbg=None cterm=None
+  hi ErrorMsg ctermfg=253 ctermbg=124 cterm=None
+  hi PreProc ctermfg=246 ctermbg=None cterm=None
+  hi Type ctermfg=75 ctermbg=None cterm=None
+  hi StorageClass ctermfg=75 ctermbg=None cterm=None
+  hi Structure ctermfg=75 ctermbg=None cterm=None
+  hi Typedef ctermfg=75 ctermbg=None cterm=None
+  hi Comment ctermfg=243 ctermbg=None cterm=None
+  hi Identifier ctermfg=75 ctermbg=None cterm=None
+  hi Function ctermfg=75 ctermbg=None cterm=None
+  hi DiffText ctermfg=88 ctermbg=250 cterm=None
+  hi Constant ctermfg=208 ctermbg=None cterm=None
+  hi Search ctermfg=black ctermbg=220 cterm=None
+  hi Error ctermfg=196 ctermbg=None cterm=None
+  hi Special ctermfg=160 ctermbg=None cterm=None
+  hi Operator ctermfg=red ctermbg=None cterm=None
+  hi Ignore ctermfg=220 ctermbg=None cterm=None
+  hi Underline ctermfg=244 ctermbg=None cterm=None
+  hi Visual cterm=none ctermbg=020 ctermfg=None
+  hi MatchParen cterm=none ctermbg=46 ctermfg=black
 
-hi FoldColumn ctermfg=248 ctermbg=None cterm=None
-hi Folded ctermfg=248 ctermbg=None cterm=None
-hi StatusLine ctermbg=022 ctermfg=255 cterm=None
-hi StatusLineNC ctermbg=022 ctermfg=254 cterm=None
-hi VertSplit ctermfg=000 ctermbg=022 cterm=None
+  hi Conditional cterm=None ctermfg=red ctermbg=None
+  hi Statement cterm=None ctermfg=red ctermbg=None
+  hi Repeat cterm=None ctermfg=red ctermbg=None
 
-hi LineNr ctermfg=250 ctermbg=000 cterm=None
-hi CursorLineNr ctermfg=white ctermbg=000 cterm=None
-hi NonText ctermfg=87 ctermbg=None cterm=None
+  hi FoldColumn ctermfg=248 ctermbg=None cterm=None
+  hi Folded ctermfg=248 ctermbg=None cterm=None
+  hi StatusLine ctermbg=022 ctermfg=255 cterm=None
+  hi StatusLineNC ctermbg=022 ctermfg=254 cterm=None
+  hi VertSplit ctermfg=000 ctermbg=022 cterm=None
 
-hi Pmenu ctermfg=White ctermbg=black cterm=None
-hi PmenuSel ctermfg=black ctermbg=Gray cterm=None
-hi PmenuSbar ctermfg=DarkGray ctermbg=DarkGray cterm=None
-hi PmenuThumb ctermfg=Gray ctermbg=Gray cterm=None
+  hi LineNr ctermfg=250 ctermbg=000 cterm=None
+  hi CursorLineNr ctermfg=white ctermbg=000 cterm=None
+  hi NonText ctermfg=87 ctermbg=None cterm=None
 
-set cursorline
-hi CursorLine cterm=NONE ctermbg=NONE
+  hi Pmenu ctermfg=White ctermbg=black cterm=None
+  hi PmenuSel ctermfg=black ctermbg=Gray cterm=None
+  hi PmenuSbar ctermfg=DarkGray ctermbg=DarkGray cterm=None
+  hi PmenuThumb ctermfg=Gray ctermbg=Gray cterm=None
 
-hi DiffAdd    cterm=bold ctermfg=black ctermbg=41 gui=none guifg=bg guibg=Red
-hi DiffDelete cterm=bold ctermfg=black ctermbg=161 gui=none guifg=bg guibg=Red
-hi DiffChange cterm=bold ctermfg=black ctermbg=32 gui=none guifg=bg guibg=Red
-hi DiffText   cterm=bold ctermfg=255 ctermbg=27 gui=none guifg=bg guibg=Red
-hi CursorLine   cterm=NONE ctermfg=None ctermbg=18
+  set cursorline
+  hi CursorLine cterm=NONE ctermbg=NONE
+
+  hi DiffAdd    cterm=bold ctermfg=black ctermbg=41 gui=none guifg=bg guibg=Red
+  hi DiffDelete cterm=bold ctermfg=black ctermbg=161 gui=none guifg=bg guibg=Red
+  hi DiffChange cterm=bold ctermfg=black ctermbg=32 gui=none guifg=bg guibg=Red
+  hi DiffText   cterm=bold ctermfg=255 ctermbg=27 gui=none guifg=bg guibg=Red
+  hi CursorLine   cterm=NONE ctermfg=None ctermbg=18
+endif
 "
 " END THEME
 "
+
+
 augroup CursorLine
   au!
   au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
