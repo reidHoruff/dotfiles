@@ -42,6 +42,8 @@ Plugin 'junegunn/fzf.vim'
 "Plugin 'tpope/vim-dispatch'
 "Plugin 'wincent/terminus'
 "Plugin 'jeffkreeftmeijer/vim-numbertoggle'
+Plugin 'sudar/vim-arduino-syntax'
+"
 
 
 call vundle#end()
