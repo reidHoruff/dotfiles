@@ -242,15 +242,15 @@ set t_Co=256
 
 let python_highlight_all = 1
 
-if 0
+if 1
   let c_gnu = 1
   let bg = 234
   set background=dark
 
-  hi Normal ctermfg=015  ctermbg=000 cterm=None
+  "hi Normal ctermfg=015  ctermbg=000 cterm=None
   hi Todo ctermfg=black ctermbg=251 cterm=None
   hi String ctermfg=186 ctermbg=None cterm=None
-  hi Cursor ctermfg=red ctermbg=None cterm=None
+  "hi Cursor ctermfg=red ctermbg=None cterm=None
   hi SpecialKey ctermfg=87 ctermbg=None cterm=None
   hi Directory ctermfg=76 ctermbg=None cterm=None
   hi ErrorMsg ctermfg=253 ctermbg=124 cterm=None
@@ -279,8 +279,8 @@ if 0
 
   hi FoldColumn ctermfg=248 ctermbg=None cterm=None
   hi Folded ctermfg=248 ctermbg=None cterm=None
-  hi StatusLine ctermbg=022 ctermfg=255 cterm=None
-  hi StatusLineNC ctermbg=022 ctermfg=254 cterm=None
+  "hi StatusLine ctermbg=022 ctermfg=255 cterm=None
+  "hi StatusLineNC ctermbg=022 ctermfg=254 cterm=None
   hi VertSplit ctermfg=000 ctermbg=022 cterm=None
 
   hi LineNr ctermfg=250 ctermbg=000 cterm=None
@@ -292,14 +292,14 @@ if 0
   hi PmenuSbar ctermfg=DarkGray ctermbg=DarkGray cterm=None
   hi PmenuThumb ctermfg=Gray ctermbg=Gray cterm=None
 
-  set cursorline
-  hi CursorLine cterm=NONE ctermbg=NONE
+  "set cursorline
+  "hi CursorLine cterm=NONE ctermbg=NONE
 
   hi DiffAdd    cterm=bold ctermfg=black ctermbg=41 gui=none guifg=bg guibg=Red
   hi DiffDelete cterm=bold ctermfg=black ctermbg=161 gui=none guifg=bg guibg=Red
   hi DiffChange cterm=bold ctermfg=black ctermbg=32 gui=none guifg=bg guibg=Red
   hi DiffText   cterm=bold ctermfg=255 ctermbg=27 gui=none guifg=bg guibg=Red
-  hi CursorLine   cterm=NONE ctermfg=None ctermbg=18
+  "hi CursorLine   cterm=NONE ctermfg=None ctermbg=18
 endif
 "
 " END THEME

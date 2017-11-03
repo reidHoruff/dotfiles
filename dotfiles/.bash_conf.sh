@@ -47,6 +47,7 @@ alias weather="wget -O - http://wttr.in/seattle -q"
 alias watch='watch -n1 '
 alias my='cd ~/mysql/5.6/'
 alias sc='cd ~/scripts/'
+alias ls='ls --color'
 
 #When 'grepping' add color!
 alias grep="grep --color"
@@ -62,3 +63,7 @@ bind TAB:menu-complete
 
 HISTSIZE=
 HISTFILESIZE=
+
+stty lnext ^q stop undef start undef
+
+export GIT_SSL_CAINFO=//file-ca/shares/Installers/nginx.crt
