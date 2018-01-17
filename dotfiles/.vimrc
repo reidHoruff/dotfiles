@@ -19,7 +19,7 @@ Plugin 'kien/ctrlp.vim'
 "Plugin 'jlanzarotta/bufexplorer'
 "Plugin 'solarnz/thrift.vim'
 "Plugin 'MattesGroeger/vim-bookmarks'
-"Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'octol/vim-cpp-enhanced-highlight'
 "Plugin 'majutsushi/tagbar'
 "Plugin 'tpope/vim-commentary'
 "Plugin 'Raimondi/delimitMate'
@@ -31,7 +31,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'tmux-plugins/vim-tmux'
 "Plugin 'reidHoruff/tagless'
 "Plugin 'reidhoruff/HiCursorWords'
-"Plugin 'reidhoruff/a.vim'
+Plugin 'reidhoruff/a.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 "Plugin 'tpope/vim-fugitive'
 Plugin 'ntpeters/vim-better-whitespace'
@@ -121,8 +121,7 @@ map <leader>q :wq<CR>
 
 " fuzzy file opener... there are many
 "map <C-f> :CtrlPBuffer<CR>
-map go :CtrlPBuffer<CR>
-let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:20,results:20'
+map go :CtrlP<CR>
 " map go :FBVimMuralSearch<CR>
 " map go :CommandT<CR>
 
@@ -145,9 +144,15 @@ set autoindent
 "set smartindent
 
 "ctrl+p stuff
-let g:ctrlp_by_filename = 1
+let g:ctrlp_by_filename = 0
+let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:15,results:15'
 let g:ctrlp_max_files = 0
-let g:ctrlp_working_path_mode = 'c'
+let g:ctrlp_working_path_mode = 'O'
+let g:ctrlp_custom_ignore = {
+      \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+      \ 'file': '\v\.(exe|so|o|hcg|dil|out|obj|d|mk|opt)$',
+      \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
+      \ }
 
 "easymotion activated via space
 "map <SPACE> <Plug>(easymotion-s2)
@@ -213,9 +218,12 @@ let g:tagless_enable_shitty_syntax_highlighting=1
 let g:tagless_infer_file_types=1
 map <leader>f :TaglessCW<CR>
 map <leader>l :Lines<CR>
-map <leader>o :FZF<CR>
+"map <leader>o :FZF<CR>
+map <leader>o :CtrlPDir<CR>
 map <leader>t :Tags<CR>
 map <leader>b :Buffers<CR>
+
+let g:fzf_layout = {'down': '~40%' }
 
 "remember cursor positions
 if has("autocmd")
