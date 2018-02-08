@@ -8,7 +8,7 @@
 #export PS1="\[\033[48;5;28m\]\u@\w\[$(tput sgr0)\]\[\033[48;5;-1m\]\n\[$(tput sgr0)\]"
 #export PS1="\[\033[48;5;22m\]\u@\w\[$(tput sgr0)\]\[\033[48;5;-1m\]\n\[$(tput sgr0)\]"
 #export PS1="\[[1m\]\[\033[38;5;232m\]\[\033[48;5;39m\]\w\[[m\]\[[m\]\[\033[38;5;15m\]\[\033[48;5;-1m\]\n\[[m\]"
-tty -s && export PS1="\[\033[48;5;55m\]\w\[$(tput sgr0)\]\[\033[48;5;-1m\]\n\[$(tput sgr0)\]"
+#tty -s && export PS1="\[\033[48;5;55m\]\w\[$(tput sgr0)\]\[\033[48;5;-1m\]\n\[$(tput sgr0)\]"
 #tty -s && export PS1="\[\033[38;5;21m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]\n\[$(tput sgr0)\]"
 
 function co { git checkout $1; }
@@ -66,4 +66,4 @@ HISTFILESIZE=
 
 stty lnext ^q stop undef start undef
 
-export GIT_SSL_CAINFO=//file-ca/shares/Installers/nginx.crt
+export PS1="\[\033[48;5;27m\]\u@\h \w\[$(tput sgr0)\]\[\033[48;5;-1m\]\n\[$(tput sgr0)\]"

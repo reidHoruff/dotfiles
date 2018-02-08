@@ -42,7 +42,7 @@ Plugin 'junegunn/fzf.vim'
 "Plugin 'tpope/vim-dispatch'
 "Plugin 'wincent/terminus'
 "Plugin 'jeffkreeftmeijer/vim-numbertoggle'
-"Plugin 'sudar/vim-arduino-syntax'
+Plugin 'sudar/vim-arduino-syntax'
 "
 
 
@@ -104,10 +104,12 @@ map <leader>a :A<CR>
 map <leader>e :IH<CR>
 map <leader>n :cn<CR>zz
 map <leader>p :cp<CR>zz
+map <C-)> :cn<CR>zz
+map <C-(> :cn<CR>zz
 map <leader>d :Gvdiff<CR>
 map <Leader>u :.,$s/\<<C-r><C-w>\>/
-map <Leader>m :silent :make -j32<CR>:silent :exe "normal \<c-l>"<CR>
-map qq :q!<CR>
+map <Leader>m :make -j12 test<CR>
+"map qq :q!<CR>
 map G Gzz
 map gU gUiw
 map gu guiw
