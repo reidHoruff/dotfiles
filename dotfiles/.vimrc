@@ -13,7 +13,7 @@ Plugin 'gmarik/vundle'
 "Plugin 'ludovicchabant/vim-lawrencium'
 "Plugin 'Valloric/YouCompleteMe',
 "Plugin 'mbbill/undotree'
-"Plugin 'flazz/vim-colorschemes'
+Plugin 'flazz/vim-colorschemes'
 Plugin 'kien/ctrlp.vim'
 "Plugin 'scrooloose/nerdtree'
 "Plugin 'jlanzarotta/bufexplorer'
@@ -42,8 +42,8 @@ Plugin 'junegunn/fzf.vim'
 "Plugin 'tpope/vim-dispatch'
 "Plugin 'wincent/terminus'
 "Plugin 'jeffkreeftmeijer/vim-numbertoggle'
-Plugin 'sudar/vim-arduino-syntax'
-"
+"Plugin 'sudar/vim-arduino-syntax'
+Plugin 'will133/vim-dirdiff'
 
 
 call vundle#end()
@@ -209,6 +209,7 @@ nnoremap // :noh<CR>
 
 au BufReadPost TARGETS set syntax=python
 au BufReadPost *.cconf set syntax=python
+au BufReadPost *.in set syntax=cpp
 au BufReadPost cgdbrc set filetype=vim
 au BufReadPost *.tw set filetype=python
 au BufReadPost *.fbpkg.cconf set filetype=python
