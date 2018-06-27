@@ -48,7 +48,6 @@ alias watch='watch -n1 '
 alias my='cd ~/mysql/5.6/'
 alias sc='cd ~/scripts/'
 alias ls='ls --color'
-alias python='python3.6'
 
 #When 'grepping' add color!
 alias grep="grep --color"

@@ -208,6 +208,10 @@ set scrolloff=8
 nnoremap // :noh<CR>
 
 au BufReadPost TARGETS set syntax=python
+au BufReadPost BUILD set syntax=python
+au BufReadPost SConstruct set syntax=python
+au BufReadPost *.BUILD set syntax=python
+au BufReadPost WORKSPACE set syntax=python
 au BufReadPost *.cconf set syntax=python
 au BufReadPost *.in set syntax=cpp
 au BufReadPost cgdbrc set filetype=vim
