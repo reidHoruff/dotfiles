@@ -1,0 +1,14 @@
+#!/bin/bash
+
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/vundle
+
+
+set -x
+
+i=$(dirname "$0")
+
+cp $i/dat/.tmux.conf ~/.tmux.conf
+cp $i/dat/.vimrc ~/.vimrc
+cp $i/dat/.reid.sh  ~/.reid.sh
+
+echo 'source ~/.reid.sh' >> ~/.bashrc

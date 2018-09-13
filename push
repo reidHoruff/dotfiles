@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -x
+
+i="$(dirname "$0")"
+
+cp ~/.tmux.conf $i/dat/.tmux.conf
+cp ~/.vimrc $i/dat/.vimrc
+cp ~/.reid.sh $i/dat/.reid.sh
+
