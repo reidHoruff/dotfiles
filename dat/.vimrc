@@ -33,7 +33,8 @@ Plugin 'tmux-plugins/vim-tmux'
 "Plugin 'reidhoruff/HiCursorWords'
 Plugin 'reidhoruff/a.vim'
 Plugin 'christoomey/vim-tmux-navigator'
-"Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'ntpeters/vim-better-whitespace'
 "Plugin 'joshdick/onedark.vim'
 "Plugin 'vim-scripts/Conque-GDB'
@@ -50,6 +51,8 @@ call vundle#end()
 filetype plugin indent on
 
 let mapleader = "\<Space>"
+
+set updatetime=200
 
 "bookmarks stuff
 "let g:bookmark_no_default_key_mappings = 1
@@ -139,9 +142,9 @@ set incsearch
 "all things relating to tabs
 set expandtab
 set smarttab
-set softtabstop=2
-set shiftwidth=2
-set tabstop=2
+set softtabstop=4
+set shiftwidth=4
+set tabstop=4
 set autoindent
 "set smartindent
 
