@@ -75,6 +75,7 @@ let g:HiCursorWords_delay = 300
 set laststatus=2
 "always show col/line num in status bar
 set ruler
+set linebreak
 
 "command t stuff
 "let g:CommandTMaxFiles=350000
@@ -111,7 +112,7 @@ map <C-)> :cn<CR>zz
 map <C-(> :cn<CR>zz
 map <leader>d :Gvdiff<CR>
 map <Leader>u :.,$s/\<<C-r><C-w>\>/
-map <Leader>m :make -j12 test<CR>
+map <Leader>m :make comp_color=never compiler=clang++\|copen<CR>
 "map qq :q!<CR>
 map G Gzz
 map gU gUiw
@@ -155,7 +156,7 @@ let g:ctrlp_max_files = 0
 let g:ctrlp_working_path_mode = 'O'
 let g:ctrlp_custom_ignore = {
       \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-      \ 'file': '\v\.(exe|so|o|hcg|dil|out|obj|d|mk|opt)$',
+      \ 'file': '\v\.(exe|so|o|hcg|dil|out|obj|d|mk|opt|gcda|gcno)$',
       \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
       \ }
 
